@@ -1,0 +1,191 @@
+/* 콘텐츠 페이지 (Part B) — 목록/상세/본문/empty. 디자인 시스템 토큰만 사용. */
+
+/* content 페이지는 hero 없이 바로 .section을 쓰므로, fixed GNB(80px)와
+   겹치지 않게 main 상단을 GNB 높이만큼 확보한다. (content.css는 content
+   페이지에만 로드되어 다른 페이지에는 영향 없음) */
+#main { padding-top: var(--gnb-height); }
+@media (max-width: 767px) {
+  #main { padding-top: var(--gnb-height-mobile); }
+}
+
+/* content 페이지는 hero가 없어 #main이 GNB 높이(80)만큼 이미 비웠는데, 그 위에
+   .section 기본 상단 패딩(--space-4xl=80)까지 더해져 상단이 과하게 빈다(총 160).
+   상단만 축소해 GNB 아래 자연스러운 호흡(80+48)으로. 하단은 .section 그대로. */
+.content-detail { padding-top: var(--space-2xl); }
+
+/* ── 목록 ── */
+/* 목록 페이지 타이틀: global h1(66=히어로급) 대신 상세 글제목(48)보다 한 단계 큰 톤으로. */
+.content-list__heading { font-size: clamp(34px, 4vw, 54px); margin-bottom: var(--space-md); }
+/* 목록 인트로: 제목만 달랑 있지 않게 페이지 설명 한 단락. 본문보다 한 톤 연하게. */
+.content-list__intro {
+  max-width: 640px; margin: 0 0 var(--space-2xl);
+  font-size: 18px; line-height: 1.6; color: var(--color-text-sub);
+}
+.content-card {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--color-border-light);
+  border-radius: 4px; overflow: hidden;
+  text-decoration: none; color: inherit;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+}
+.content-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.content-card__img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.content-card__title { font-size: 20px; margin: 20px 24px 8px; }
+.content-card__lead {
+  font-size: 15px; line-height: 1.6; color: var(--color-text-sub);
+  margin: 0 24px 24px;
+}
+.content-empty {
+  padding: var(--space-2xl) 0; text-align: center; color: var(--color-text-sub);
+}
+
+/* ── 상세 ── */
+/* standalone 상세: 사이드바가 없으니 단일 칼럼(가운데 정렬).
+   760px는 다른 풀폭 페이지 대비 답답해 보이고 풀폭은 한 줄이 너무 길어,
+   그 사이값 880px로. 백링크·제목·본문이 모두 이 칼럼 왼쪽 라인에 정렬된다.
+   사이드바 있는 글의 2단 레이아웃은 후속(브레인스토밍 설계 확정 후). */
+.container--narrow { max-width: 880px; }
+.content-detail__back {
+  display: inline-block; margin-bottom: var(--space-lg);
+  font-size: 14px; color: var(--color-text-sub); text-decoration: none;
+}
+.content-detail__back:hover { color: var(--color-primary); }
+.content-detail__head { margin-bottom: var(--space-xl); }
+/* 콘텐츠 article 제목: global h1(clamp 36–66px = 히어로 타이틀 크기)은 본문 글
+   제목엔 과함 → 한 단계 축소(본문 섹션 h2=46px와 위계 맞춤). */
+.content-detail__head h1 { font-size: clamp(30px, 3.4vw, 48px); line-height: 1.15; }
+.content-detail__lead {
+  font-size: 20px; line-height: 1.6; color: var(--color-text-sub);
+  margin-top: var(--space-md);
+}
+.content-detail__date {
+  display: block; margin-top: var(--space-md);
+  font-size: 14px; color: var(--color-text-sub);
+}
+
+/* ── 2단 레이아웃 (사이드바 있는 글) — C안: 본문 784 중앙 고정 ──
+   본문 텍스트 784(= standalone과 동일)를 화면 중앙에 고정하고, 왼쪽 여백에
+   사이드바(.content-aside = 목차 위 + 관련글 아래)를 둔다 → 본문 위치 불변(점프 0).
+   사이드바는 통째 sticky라 스크롤 시 관련글이 목차 아래 붙어 함께 멈추고(겹침 없음),
+   배치는 grid-template-areas가 결정(DOM은 back→aside→body 순서). */
+.content-detail--has-sidebar .container {
+  max-width: none;   /* 좌우 패딩은 global .container(48/32/24 반응형) 상속 */
+}
+.content-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 784px minmax(0, 1fr); /* 784 = standalone 텍스트 폭. minmax(0,…)이라야 본문 정중앙 */
+  grid-template-areas:
+    ".    back ."
+    "side body .";
+  align-items: start;
+}
+/* 백링크: grid 'back' 영역 = 본문 칼럼 위 라인. 화면 끝이 아니라 본문(321) 왼쪽에 정렬
+   (standalone 단일칼럼과 동일 시각). 사이드바는 그 아래 행. */
+.content-layout > .content-detail__back { grid-area: back; justify-self: start; }
+.content-main { grid-area: body; min-width: 0; }
+/* 사이드바: 왼쪽 여백의 오른쪽 끝(본문 옆 220 칼럼). 통째 sticky → 목차+관련글이 한 덩어리로
+   상단에 고정되고, 관련글은 목차 아래에 붙어 같이 올라가다 멈춘다. */
+.content-aside {
+  grid-area: side;
+  justify-self: end;             /* 왼쪽 여백의 오른쪽 끝 = 본문 옆에 붙음 */
+  align-self: start;
+  width: 220px;
+  margin-right: var(--space-xl);
+  font-size: 14px;
+  position: sticky;
+  top: calc(var(--gnb-height) + var(--space-lg));
+}
+.content-rel-block { margin-top: var(--space-xl); }
+
+/* 블록 내부 타이포 (목차·관련 공통) */
+.content-sidebar__block + .content-sidebar__block { margin-top: var(--space-xl); }
+.content-sidebar__title {
+  font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-sm);
+}
+.content-toc-block ol, .content-rel-block ul { list-style: none; padding: 0; margin: 0; }
+.content-toc-block li, .content-rel-block li { margin-bottom: var(--space-sm); line-height: 1.45; }
+.content-toc-block a, .content-rel-block a { color: var(--color-text); text-decoration: none; }
+.content-toc-block a:hover, .content-rel-block a:hover { color: var(--color-primary); }
+.content-toc { padding-left: var(--space-md); border-left: 2px solid var(--color-border-light); }
+
+/* <1400(여백 부족): 1단. 목차는 본문 위·관련글은 본문 아래.
+   본문은 880(텍스트 784) 중앙 유지 → standalone과 위치 동일(점프 0). */
+@media (max-width: 1399px) {
+  .content-detail--has-sidebar .container { max-width: 880px; }
+  /* 사이드바 래퍼를 풀어 목차/관련글을 .content-layout grid 아이템으로 되돌린다
+     → 목차=본문 위, 관련글=본문 아래(grid-area). sticky 없이 본문과 함께 흐름. */
+  .content-aside { display: contents; }
+  .content-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-template-areas: "back" "toc" "body" "rel";
+  }
+  .content-toc-block {
+    grid-area: toc; justify-self: stretch; width: auto; margin-right: 0;
+    position: static; margin-bottom: var(--space-xl);
+  }
+  .content-rel-block {
+    grid-area: rel; justify-self: stretch; width: auto; margin-right: 0;
+    margin-top: var(--space-2xl);
+  }
+}
+
+/* ── 본문 (CMS body HTML) ── */
+.content-body { font-size: 17px; line-height: 1.75; color: var(--color-text); }
+/* 본문 소제목: global h2(46px)는 본문(17px) 대비 과해 글 제목(48)과 납작해짐 →
+   28~32로 낮춰 "글 제목 48 > 소제목 32 > 본문 17" 위계 확보. */
+.content-body h2 { font-size: clamp(24px, 2.2vw, 32px); margin: var(--space-xl) 0 var(--space-md); }
+.content-body p { margin-bottom: var(--space-md); }
+.content-body img { max-width: 100%; height: auto; border-radius: 4px; margin: var(--space-lg) 0; }
+/* CMS는 본문 이미지 정렬을 부모 <p style="text-align:…"> 인라인으로 준다. 전역 img{display:block}
+   이라 text-align이 안 먹으므로 margin으로 변환(center=양쪽 auto, right=왼쪽 auto). */
+.content-body p[style*="center"] img { margin-left: auto; margin-right: auto; }
+.content-body p[style*="right"] img  { margin-left: auto; margin-right: 0; }
+.content-body a { color: var(--color-primary); text-decoration: underline; }
+/* CMS body 안의 컨텍스트 링크 */
+.content-body a.ctx-link { font-weight: 500; }
+
+/* ── Insights 카테고리 탭 ── */
+.insights-tabs { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 32px; border-bottom:1px solid var(--color-border-light); }
+.insights-tab { padding:10px 4px; margin-bottom:-1px; color:var(--color-text-sub); font-weight:500;
+  border-bottom:2px solid transparent; text-decoration:none; white-space:nowrap; }
+.insights-tab.is-active { color:var(--color-primary); border-bottom-color:var(--color-primary); }
+.insights-cat[hidden] { display:none; }
+
+/* ── 피쳐드 hero (1열 크게) ── */
+.insights-hero { display:grid; grid-template-columns:1.3fr 1fr; gap:32px; align-items:center;
+  margin-bottom:40px; text-decoration:none; color:inherit; }
+.insights-hero__img { width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:12px; background:var(--color-bg-surface); }
+.insights-hero__title { font-size:clamp(1.6rem,3vw,2.2rem); margin:0 0 12px; }
+.insights-hero__lead { color:var(--color-text-sub); }
+@media (max-width:768px){ .insights-hero{ grid-template-columns:1fr; gap:16px; } }
+
+/* ── 카드: 5줄 클램프 + 발행일 + placeholder (content-card 체계 재사용 → 제목/리드 24px 패딩) ── */
+.insights-card__lead { display:-webkit-box; -webkit-line-clamp:5; -webkit-box-orient:vertical; overflow:hidden; }
+.insights-card__date { margin:0 24px 20px; margin-top:auto; align-self:flex-end; color:var(--color-text-sub); font-size:.85rem; }
+.is-placeholder { display:block; background:var(--color-bg-surface); }
+/* 빈 카드 — 그리드 마지막 줄 자리 채움 (연한 그레이, 모바일 1열에선 숨김) */
+.insights-card--empty { border:1px solid var(--color-border-light); border-radius:4px; background:var(--color-bg-surface); opacity:.45; }
+@media (max-width:1023px){ .insights-card--empty { display:none; } }
+img.insights-hero__img, img.content-card__img { opacity:0; transition:opacity .3s; }
+img.insights-hero__img.is-loaded, img.content-card__img.is-loaded { opacity:1; }
+
+/* ── 상세: Updated 구분선 + 본문 하단 관련 카드 ── */
+.content-detail__updated { color:var(--color-text-sub); font-size:.9rem; margin-top:6px;
+  padding-bottom:16px; border-bottom:1px solid var(--color-border-light); }
+/* 연관글 영역 — 본문/FAQ와 위·아래 연한 구분선으로 분리 (구분선은 콘텐츠 폭으로) */
+.content-related { padding:0; }
+.content-related__inner { border-top:1px solid var(--color-border-light); border-bottom:1px solid var(--color-border-light); padding:48px 0; }
+.content-more + .content-more { margin-top:40px; }
+.content-more h2 { font-size:1.2rem; margin-bottom:20px; }
+.related-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.related-card__title { margin-bottom:20px; }
+@media (max-width:1023px){ .related-cards{ grid-template-columns:1fr 1fr; } }
+@media (max-width:600px){ .related-cards{ grid-template-columns:1fr; } }
+
+/* 한글 제목: 단어(어절) 중간 개행 방지 — CJK keep-all (영문엔 무해) */
+.content-detail h1, .content-detail__lead,
+.insights-hero__title, .content-card__title, .related-card__title { word-break: keep-all; }

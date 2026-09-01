@@ -1,0 +1,811 @@
+/* ============================================
+   WIZMOBILITY Shared Components
+   ============================================ */
+
+/* ── CTA Buttons ── */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  transition: background 0.2s var(--ease-out), color 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
+}
+
+.cta svg,
+.cta .cta__arrow {
+  transition: transform 0.2s var(--ease-out);
+}
+
+.cta:hover svg,
+.cta:hover .cta__arrow {
+  transform: translateX(4px);
+}
+
+/* Primary — filled */
+.cta--primary {
+  padding: 15px 28px;
+  background: var(--color-primary);
+  color: var(--color-text-invert);
+  border-radius: 4px;
+}
+
+.cta--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+/* Primary on dark */
+.cta--primary-light {
+  padding: 15px 28px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border-radius: 4px;
+}
+
+.cta--primary-light:hover {
+  background: var(--color-bg-surface);
+}
+
+/* Secondary — outlined */
+.cta--secondary {
+  padding: 15px 27px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  color: inherit;
+}
+
+.cta--secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Text link */
+.cta--text {
+  color: var(--color-primary);
+  padding: 12px 0;
+}
+
+.cta--text:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Text link on dark bg — invert */
+.section--dark .cta--text {
+  color: var(--color-text-invert);
+  opacity: 0.9;
+}
+
+.section--dark .cta--text:hover {
+  opacity: 1;
+}
+
+/* Disabled state — for placeholder CTAs awaiting assets/backend */
+.cta--disabled,
+.cta--disabled:hover {
+  pointer-events: none;
+  opacity: 0.45;
+  text-decoration: none;
+  cursor: default;
+}
+
+/* ── Card ── */
+.card {
+  padding: 32px 28px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 4px;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Card divider — visual signature #1 */
+.card__divider {
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+  margin: 16px 0;
+}
+
+.card__title {
+  margin-bottom: 0;
+}
+
+.card__body {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-text-sub);
+  flex: 1;
+}
+
+.card__cta {
+  margin-top: 20px;
+}
+
+/* Card on dark */
+.section--dark .card {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.section--dark .card__body {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Card grid helpers ── */
+.card-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.card-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.card-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.card-grid--5 { grid-template-columns: repeat(5, 1fr); }
+.card-grid--2x2 { grid-template-columns: repeat(2, 1fr); }
+
+@media (max-width: 1023px) {
+  .card-grid--3,
+  .card-grid--2x2 { grid-template-columns: 1fr; }
+  .card-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .card-grid--5 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .card-grid--4 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 767px) {
+  .card-grid--5 {
+    grid-template-columns: 1fr;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 16px;
+    padding-bottom: 8px;
+  }
+  .card-grid--5 .card {
+    flex: 0 0 280px;
+    width: 280px;
+    scroll-snap-align: start;
+  }
+}
+
+/* ── Split layout ── */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.split--tall {
+  min-height: 600px;
+}
+
+.split__media {
+  position: relative;
+  overflow: hidden;
+}
+
+.split__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.split__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-3xl) var(--space-2xl);
+  max-width: 640px;
+}
+
+@media (max-width: 1023px) {
+  .split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .split__media {
+    aspect-ratio: 16 / 9;
+  }
+  .split__content {
+    max-width: none;
+    /* 1단 스택 시 좌우 패딩 축소: 풀블리드 split은 24px 거터,
+       .container 안 split은 container가 거터를 담당하므로 0 */
+    padding-inline: var(--space-lg);
+  }
+  .container .split__content {
+    padding-inline: 0;
+  }
+}
+
+/* ── Icon (Lucide-style) ── */
+.icon {
+  width: 52px;
+  height: 52px;
+  stroke-width: 1.4;
+  stroke: currentColor;
+  fill: none;
+  margin-bottom: var(--space-md);
+}
+
+/* ── Accent Chip ── */
+.accent-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  margin-top: var(--space-lg);
+  opacity: 0.92;
+}
+
+@media (max-width: 767px) {
+  .accent-chip {
+    text-align: center;
+    line-height: 1.6;
+    padding: 10px 18px;
+  }
+}
+
+/* tag variant — used in flex/grid clusters; inherits base pill style,
+   only neutralizes vertical margin and forces full opacity. */
+.accent-chip--tag {
+  margin-top: 0;
+  opacity: 1;
+}
+
+/* ── Sub-label ── */
+.sub-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.section--dark .sub-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── CTA spacing (when CTA needs extra top margin) ── */
+.cta--spaced {
+  margin-top: var(--space-lg);
+}
+
+/* ── Split CTA alignment ── */
+.cta--start {
+  align-self: flex-start;
+}
+
+/* ── Coverage list spacing ── */
+.coverage__list-items {
+  margin-top: var(--space-xl);
+}
+
+/* ── Note box (info callout) ── */
+.note-box {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg-surface);
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-xl);
+}
+
+.note-box__icon {
+  flex-shrink: 0;
+}
+
+/* ── Custom quote line ── */
+.custom-quote-line {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border-light);
+  font-size: 17px;
+  color: var(--color-text-sub);
+}
+
+/* ── Card tags ── */
+.card__tags {
+  font-size: 15px;
+  color: var(--color-text-sub);
+  margin-top: var(--space-sm);
+}
+
+/* ── Card lead (bold intro) ── */
+.card__lead {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Page Hero (shared base for all hero sections) ── */
+.page-hero {
+  position: relative;
+  /* min-height 기반 — content가 80vh보다 크면 hero가 자동 확장 → GNB 겹침 자연 해소 */
+  min-height: max(80vh, 560px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.page-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-gradient);
+  z-index: 1;
+}
+
+.page-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  padding: var(--space-4xl) var(--space-2xl);
+  margin-left: max(48px, calc((100vw - var(--container-max)) / 2));
+}
+
+.page-hero__sub {
+  font-size: clamp(15px, 1.3vw, 20px);
+  line-height: 1.6;
+  margin-top: var(--space-lg);
+  opacity: 0.88;
+  max-width: 1040px;
+}
+
+.page-hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  .page-hero {
+    /* 모바일도 동일 — content 자동 확장. min-height 안전망만 별도(500px) */
+    min-height: max(80vh, 500px);
+  }
+  /* 모바일 hero overlay — 사진 위 글자가 복잡해 보이는 문제 해소.
+     상단은 거의 솔리드 burgundy로 덮어 심플함·브랜드 톤 확보,
+     하단으로 갈수록 투명도 올려 사진이 살짝 비치게.
+     .page-hero--short(open-account)는 자체 overlay 규칙(specificity 2)로 영향 없음. */
+  .page-hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(107, 0, 41, 0.96) 0%,
+      rgba(107, 0, 41, 0.88) 35%,
+      rgba(77, 0, 30, 0.62) 70%,
+      rgba(40, 0, 15, 0.40) 100%
+    );
+  }
+  .page-hero__content {
+    /* 좌우 20px — md(16)/lg(24) 사이 hero 전용. 24px는 hero 가로 텍스트에 과한 inset이라 축소. */
+    padding: var(--space-2xl) 20px;
+    margin-left: 0;
+  }
+  .page-hero__content h1 br {
+    display: none;
+  }
+  /* br이 display:none이라도 :has(br)는 DOM 기준으로 매치돼 text-wrap:wrap이 걸린다.
+     모바일에서는 자연 wrap이 어색해서 balance로 복원. */
+  .page-hero__content h1 {
+    text-wrap: balance;
+  }
+  .page-hero__ctas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── Modal (generic — data-modal-open / data-modal-close 트리거로 전역 동작) ── */
+.modal[hidden] { display: none; }
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+.modal__panel {
+  position: relative;
+  background: var(--color-bg);
+  border-radius: 16px;
+  max-width: 480px;
+  width: 100%;
+  padding: var(--space-2xl);
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalIn 0.2s var(--ease-out);
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal__close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-sub);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.15s var(--ease-out), color 0.15s var(--ease-out);
+}
+.modal__close:hover {
+  color: var(--color-text);
+  background: var(--color-bg-surface);
+}
+.modal__close svg { width: 20px; height: 20px; }
+.modal__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-lg);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal__icon svg { width: 100%; height: 100%; }
+.modal__panel h3 {
+  font-size: clamp(20px, 2vw, 26px);
+  margin-bottom: var(--space-md);
+}
+.modal__body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-xl);
+  text-wrap: pretty;
+}
+.modal__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.modal__actions .cta {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── Final CTA (shared) ── */
+.final-cta {
+  text-align: center;
+}
+
+.final-cta__manifesto {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  opacity: 0.9;
+  margin-bottom: var(--space-2xl);
+}
+
+.final-cta__sub {
+  font-size: 19px;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: var(--space-md) auto var(--space-2xl);
+}
+
+.final-cta__paths {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  text-align: left;
+}
+
+.final-cta__paths .card {
+  border-color: rgba(255, 255, 255, 0.12);
+  transition: background 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+}
+
+.final-cta__paths .card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.final-cta__paths .card__body {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.final-cta__contact {
+  margin-top: var(--space-2xl);
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.final-cta__contact a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 2-path variant (2-col, narrower) */
+.final-cta--2path .final-cta__paths {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .final-cta__paths,
+  .final-cta--2path .final-cta__paths {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Process Overview (Horizontal 4-step Timeline) ── */
+.process-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  position: relative;
+}
+.process-overview__step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+/* 각 step의 dot 중심 → 다음 step의 dot 중심까지 라인. 첫·마지막 dot 바깥으로 안 삐져나감. */
+.process-overview__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 20px; /* dot height 40 / 2 */
+  left: 50%;
+  width: calc(100% + var(--space-lg)); /* 자기 cell width + gap = 다음 dot 중심까지 거리 */
+  height: 2px;
+  background: var(--color-border-light);
+  z-index: 0;
+}
+.process-overview__dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-primary-invert);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 auto var(--space-md);
+}
+.process-overview__step h3 {
+  font-size: 18px;
+  margin-bottom: var(--space-xs);
+}
+.process-overview__step p {
+  font-size: 15px;
+  color: var(--color-text-sub);
+  line-height: 1.55;
+}
+@media (max-width: 767px) {
+  .process-overview {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl) var(--space-lg);
+  }
+  /* 모바일 2x2 그리드에서는 step 사이 라인 무의미 */
+  .process-overview__step:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* ── FAQ Accordion ── */
+.faq-list {
+  max-width: 800px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.faq-item__question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg) 0;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-align: left;
+  cursor: pointer;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  transition: color 0.2s var(--ease-out);
+}
+
+.faq-item__question:hover,
+.faq-item.is-open .faq-item__question {
+  color: var(--color-primary);
+}
+
+.faq-item__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  margin-left: var(--space-md);
+}
+
+.faq-item__icon::before,
+.faq-item__icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 1.5px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.faq-item__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item.is-open .faq-item__icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s var(--ease-out), padding 0.35s var(--ease-out);
+}
+
+.faq-item__answer p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text-sub);
+  padding-bottom: var(--space-lg);
+}
+
+.faq-item.is-open .faq-item__answer {
+  max-height: 300px;
+}
+
+/* ── FAQ with side media — round 6 (2026-05-12) full-bleed split ──
+   coverage 패턴 미러: 좌측 텍스트 + 우측 풀이미지(edge bleed, no radius).
+   섹션은 container 없이 .faq-layout 자체가 풀 width grid 50/50. */
+
+.faq--with-media {
+  padding-block: 0;
+}
+
+.faq--with-media .faq-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+.faq--with-media .faq-list-wrapper {
+  padding-block: var(--space-4xl);
+  padding-left: max(var(--space-2xl), calc((100vw - 1200px) / 2));
+  padding-right: var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.faq--with-media .faq-list-wrapper .section__heading {
+  margin-bottom: var(--space-xl);
+}
+
+.faq--with-media .faq-list {
+  max-width: none;
+}
+
+/* Mirror of .faq-list-wrapper paddings:
+   gap (var(--space-3xl)) on the inner side, inner-container edge on the outer side.
+   align-self: start pins the image to the top of the FAQ row so it doesn't
+   shift as the left-side accordion expands. */
+.faq__media {
+  align-self: start;
+  padding-block: var(--space-4xl);
+  padding-left: var(--space-3xl);
+  padding-right: max(var(--space-2xl), calc((100vw - 1200px) / 2));
+}
+
+.faq__media img {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-bg-surface) 0%, rgba(129, 0, 49, 0.04) 100%);
+}
+
+/* 이미지 로딩 실패 시 placeholder 잔존 (배경 그라데이션) */
+.faq__media--empty::after {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px dashed rgba(129, 0, 49, 0.18);
+}
+
+@media (max-width: 1023px) {
+  .faq--with-media .faq-layout {
+    grid-template-columns: 1fr;
+  }
+  .faq--with-media .faq-list-wrapper {
+    padding: var(--space-3xl) var(--space-lg);
+  }
+  .faq__media {
+    display: none;
+  }
+}
+
+/* ── Form consent checkbox (contact·group 폼 공용) ── */
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.form-consent input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.form-consent a {
+  color: inherit;
+  text-decoration: underline;
+}
+

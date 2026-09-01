@@ -1,0 +1,221 @@
+/* ============================================
+   WIZMOBILITY Global Styles
+   ============================================ */
+
+/* ── Reset ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ── Skip to content (a11y) ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-2xl);
+  z-index: 200;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary);
+  color: var(--color-text-invert);
+  font-weight: 600;
+  border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Container ── */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-2xl);
+}
+
+@media (max-width: 1023px) {
+  .container { padding: 0 var(--space-xl); }
+}
+
+@media (max-width: 767px) {
+  .container { padding: 0 var(--space-lg); }
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+h1, h2 {
+  text-wrap: balance;
+}
+
+/* <br> 명시적 줄바꿈이 있는 헤딩은 balance가 wrap 위치를 임의 조정해서
+   의도된 줄바꿈을 무시함. balance 끄고 자연 wrap 유지. */
+h1:has(br),
+h2:has(br) {
+  text-wrap: wrap;
+}
+
+h1 em, h2 em {
+  font-weight: 300;
+  font-style: normal;
+  color: var(--color-primary);
+}
+
+/* 히어로는 이미지 배경 위라 burgundy 가독성 떨어짐 — em은 흰색 유지(font-weight만 light로 강조) */
+.section--hero h1 em,
+.section--hero h2 em,
+.page-hero h1 em,
+.page-hero h2 em {
+  color: inherit;
+}
+
+h1 { font-size: clamp(36px, 5vw, 66px); }
+h2 { font-size: clamp(32px, 3.5vw, 46px); }
+h3 { font-size: clamp(16px, 1.5vw, 22px); font-weight: 700; letter-spacing: -0.005em; line-height: 1.3; }
+h4 { font-size: clamp(12px, 1vw, 16px); font-weight: 600; letter-spacing: 0; line-height: 1.4; }
+
+/* ── Section base ── */
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+@media (max-width: 767px) {
+  .section { padding: 60px 0; }
+}
+
+.section--dark {
+  background: var(--color-bg-dark);
+  color: var(--color-text-invert);
+  /* dark 배경에서 burgundy 가시성 확보 — primary를 밝은 톤으로 cascade 오버라이드.
+     하위 요소가 var(--color-primary) 쓰면 자동으로 --p-burgundy-500 적용. */
+  --color-primary: var(--color-primary-on-dark);
+}
+
+.section--hero,
+.page-hero {
+  /* hero 다크 섹션도 동일 오버라이드 (.section--dark 클래스 없이도 dark 톤) */
+  --color-primary: var(--color-primary-on-dark);
+}
+
+.section--surface {
+  background: var(--color-bg-surface);
+}
+
+.section--hero {
+  background: var(--color-bg-hero);
+  color: var(--color-text-invert);
+}
+
+.section__heading {
+  max-width: 760px;
+  margin-bottom: var(--space-2xl);
+  text-wrap: balance;
+}
+
+.section__intro {
+  font-size: clamp(15px, 1.2vw, 20px);
+  line-height: 1.65;
+  color: var(--color-text-sub);
+  max-width: 960px;
+  margin-top: calc(-1 * var(--space-lg));
+  margin-bottom: var(--space-2xl);
+  text-wrap: pretty;
+}
+
+.section__heading--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* ── Accent text (brand burgundy) ── */
+.text-accent {
+  color: var(--color-primary);
+}
+
+/* ── No-wrap utility ── */
+.text-nowrap {
+  white-space: nowrap;
+}
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ── Section fade-in on scroll ── */
+.section[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.section[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hero background zoom (shared keyframes) ── */
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.04); }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .section[data-animate] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Footer fallback nav 규칙은 제거됨(2026-07-28).
+   GNB·푸터를 서버 include로 합쳐 내려보내면서 실제 내비가 첫 응답에 담기므로,
+   크롤러용 숨은 링크 목록이 더 이상 필요하지 않다. */

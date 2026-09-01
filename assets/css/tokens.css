@@ -1,0 +1,142 @@
+/* ============================================
+   WIZMOBILITY Design Tokens — 2-Layer Architecture
+   DS v2.1 기준
+   ============================================ */
+
+:root {
+  /* ── Layer 1: Primitive Tokens ── */
+
+  /* Brand */
+  --p-burgundy-800: #4D001E;
+  --p-burgundy-700: #6B0029;
+  --p-burgundy-600: #810031;
+  --p-burgundy-500: #B0044F; /* on-dark용 살짝 밝은 톤 (다크 배경 위 가시성 확보) */
+  --p-burgundy-100: rgba(129, 0, 49, 0.08);
+  --p-burgundy-200: rgba(129, 0, 49, 0.15);
+
+  /* Neutral */
+  --p-neutral-900: #0F0F0F;
+  --p-neutral-500: #5C5C5C;
+  --p-neutral-100: #F8F9FB;
+  --p-neutral-000: #FFFFFF;
+  --p-neutral-border: rgba(15, 15, 15, 0.12);
+
+  /* Hero */
+  --p-hero-dark: #110810;
+
+  /* Accent — warm gold (KR 사이트 도입, 2026-06-22) */
+  --p-gold-600: #C8A97E;
+
+  /* Beige — warm surface (KR 사이트 도입, 2026-06-22) */
+  --p-beige-50: #FBF8F4;
+  --p-beige-100: #F8F6F3;
+
+  /* Feedback */
+  --p-green-700: #1D6B45;
+  --p-red-700: #B91C1C;
+  --p-amber-700: #92400E;
+  --p-blue-700: #1E5A8A;
+
+  /* ── Layer 2: Semantic Tokens ── */
+
+  /* Primary */
+  --color-primary: var(--p-burgundy-600);
+  --color-primary-hover: var(--p-burgundy-700);
+  --color-primary-light: var(--p-burgundy-100);
+  --color-primary-mid: var(--p-burgundy-200);
+  --color-primary-invert: var(--p-neutral-000);
+  --color-primary-on-dark: var(--p-burgundy-500); /* dark 섹션 위 brand 액센트 (대비 확보) */
+  --color-primary-deep: var(--p-burgundy-800);    /* 최심도 burgundy (footer 배경 등) */
+
+  /* Text */
+  --color-text: var(--p-neutral-900);
+  --color-text-sub: var(--p-neutral-500);
+  --color-text-invert: var(--p-neutral-000);
+
+  /* Background */
+  --color-bg: var(--p-neutral-000);
+  --color-bg-surface: var(--p-neutral-100);
+  --color-bg-dark: var(--p-neutral-900);
+  --color-bg-hero: var(--p-hero-dark);
+
+  /* Accent / Warm surface (KR 사이트 도입, 2026-06-22) */
+  --color-accent: var(--p-gold-600);
+  --color-bg-warm: var(--p-beige-50);
+  --color-bg-warm-strong: var(--p-beige-100);
+
+  /* Border */
+  --color-border: var(--p-neutral-900);
+  --color-border-light: var(--p-neutral-border);
+
+  /* Overlay */
+  --overlay-hero: rgba(8, 1, 4, 0.3);
+  --overlay-image: rgba(0, 0, 0, 0.5);
+  --overlay-header-scroll: rgba(255, 255, 255, 0.95);
+  --overlay-shadow: rgba(0, 0, 0, 0.1);
+
+  /* On-Dark Tokens (다크 배경 위 화이트 베이스) */
+  /* Text */
+  --color-text-on-dark: rgba(255, 255, 255, 0.9);
+  --color-text-sub-on-dark: rgba(255, 255, 255, 0.7);
+  --color-text-muted-on-dark: rgba(255, 255, 255, 0.6);
+  --color-text-faint-on-dark: rgba(255, 255, 255, 0.4);
+  /* Border */
+  --color-border-on-dark: rgba(255, 255, 255, 0.12);
+  --color-border-on-dark-md: rgba(255, 255, 255, 0.15);
+  --color-border-on-dark-strong: rgba(255, 255, 255, 0.2);
+  --color-border-on-dark-xstrong: rgba(255, 255, 255, 0.5);
+  /* Surface */
+  --color-surface-on-dark-faint: rgba(255, 255, 255, 0.05);
+  --color-surface-on-dark-subtle: rgba(255, 255, 255, 0.08);
+  --color-surface-on-dark: rgba(255, 255, 255, 0.1);
+
+  /* Hero Gradient */
+  --hero-gradient: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(8, 1, 4, 0.25) 45%,
+    rgba(8, 1, 4, 0.7) 100%
+  );
+
+  /* Feedback */
+  --color-success: var(--p-green-700);
+  --color-error: var(--p-red-700);
+  --color-warning: var(--p-amber-700);
+  --color-info: var(--p-blue-700);
+
+  /* ── Spacing (8px base) ── */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 80px;
+  --space-5xl: 120px;
+
+  /* ── Typography ── */
+  --font-body: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+
+  /* ── Elevation (3-Level) ── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+  /* ── Easing ── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ── Layout ── */
+  --container-max: 1280px;
+  --gnb-height: 80px;
+  --gnb-height-mobile: 64px;
+
+  /* ── Breakpoints (reference only, used in media queries) ──
+     Mobile:  ~767px
+     Tablet:  768px–1023px
+     Desktop: 1024px–1439px
+     Wide:    1440px+
+  */
+}
