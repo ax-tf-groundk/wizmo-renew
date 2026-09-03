@@ -315,6 +315,9 @@ button{font-family:inherit;cursor:pointer}
 .blk h2{font-size:42px;font-weight:800;letter-spacing:-.045em;line-height:1.2}
 .blk__kicker{margin-top:20px;font-size:24px;font-weight:600;line-height:1.2;letter-spacing:-.02em;color:var(--bur)}
 .blk__desc{margin-top:8px;font-size:18px;line-height:1.6}
+.blk__when{margin-top:20px}
+.blk__when h3{font-size:28px;font-weight:600;letter-spacing:-.02em;line-height:1.2;color:var(--bur)}
+.blk__when p{margin-top:8px;font-size:18px;line-height:1.6;color:var(--ink)}
 .blk .btn{margin-top:20px}
 .blk--on-dark,.blk--on-dark h2{color:#fff}
 .blk--on-dark .blk__kicker{color:#fff}
@@ -1332,4 +1335,65 @@ button{font-family:inherit;cursor:pointer}
   .outnum__n{font-size:72px}
   .outcome__grid--4 .outcome__cell+.outcome__cell{padding-left:0}
   .stdgrid h2,.exrows__hd h2,.leftrows__hd h2{font-size:30px}
+}
+
+/* ==========================================================================
+   FAQ — 아코디언 (Service · Business 및 하위 페이지 공통)
+   ========================================================================== */
+.faq{padding:100px var(--pad);background:#fff}
+.faq__h{font-size:52px;font-weight:700;letter-spacing:-.045em;line-height:1.1;color:var(--ink)}
+.faq__list{margin-top:75px}
+
+.faq__item{border-top:1px solid #c4c4c4}
+.faq__item:last-child{border-bottom:1px solid #c4c4c4}
+
+.faq__q{
+  width:100%;display:flex;align-items:flex-start;gap:4px;
+  padding:40px 16px;background:none;border:0;text-align:left;
+  font-family:inherit;font-size:32px;font-weight:500;letter-spacing:-.03em;
+  line-height:1.2;color:var(--ink);cursor:pointer;
+  transition:color .2s;
+}
+.faq__q:hover{color:var(--bur)}
+.faq__q span{flex:1}
+
+/* 토글 아이콘 — 닫힘 + / 열림 × (45° 회전) */
+.faq__ico{
+  flex:0 0 42px;width:42px;height:42px;position:relative;margin-top:-2px;
+  transform:rotate(0deg);transition:transform .28s ease;   /* 닫힘 = + */
+}
+.faq__q[aria-expanded="true"] .faq__ico{transform:rotate(45deg)}  /* 열림 = × */
+.faq__ico::before,.faq__ico::after{
+  content:"";position:absolute;left:50%;top:50%;background:var(--ink);
+}
+.faq__ico::before{width:2px;height:30px;transform:translate(-50%,-50%)}
+.faq__ico::after{width:30px;height:2px;transform:translate(-50%,-50%)}
+.faq__q:hover .faq__ico::before,.faq__q:hover .faq__ico::after{background:var(--bur)}
+
+/* 답변 — 0fr → 1fr 로 부드럽게 펼침 */
+.faq__a{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .3s ease;
+}
+.faq__item.is-open .faq__a{grid-template-rows:1fr}
+.faq__a>div{overflow:hidden}
+.faq__a p{
+  padding:0 16px 40px;font-size:20px;line-height:1.7;color:var(--body);
+  max-width:1202px;
+}
+
+@media (max-width:1100px){
+  .faq__h{font-size:40px}
+  .faq__q{font-size:26px;padding:32px 8px}
+  .faq__a p{font-size:18px;padding:0 8px 32px}
+}
+@media (max-width:767px){
+  .faq{padding:72px var(--pad)}
+  .faq__h{font-size:32px}
+  .faq__list{margin-top:40px}
+  .faq__q{font-size:20px;padding:24px 0;gap:12px}
+  .faq__ico{flex:0 0 32px;width:32px;height:32px}
+  .faq__ico::before{height:22px}
+  .faq__ico::after{width:22px}
+  .faq__a p{font-size:16px;padding:0 0 24px}
 }
