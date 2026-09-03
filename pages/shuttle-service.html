@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>아파트·출퇴근·행사 셔틀버스 운영 | Shuttle Service | 위즈모빌리티</title>
+<meta name="description" content="아파트 셔틀, 출퇴근 셔틀, 호텔과 공항 연계 정기 노선부터 MICE 행사장 셔틀까지, 수요 조사와 노선 설계부터 배차와 검표, 정산까지 셔틀 운영 전체를 맡습니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="아파트·출퇴근·행사 셔틀버스 운영 | Shuttle Service | 위즈모빌리티">
+<meta property="og:description" content="이동 수요가 반복되는 거점을 연결하는 정기 노선 셔틀과 MICE 행사 셔틀을 설계하고 운영합니다. 노선 설계부터 배차, 탑승자 확인, 정산까지 함께 맡습니다.">
+<meta property="og:image" content="../assets/images/shuttle/shuttle-01-hero.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<!--
+  [배포 메모] 로컬 미리보기를 위해 모든 경로를 절대 URL로 넣어 두었습니다.
+  wizmo-renew 저장소의 pages/ 폴더에 넣을 때 아래 두 가지를 치환하면 형제 페이지와 같은 상대 경로가 됩니다.
+    1) ./  →  ./
+    2) ../assets/ →  ../assets/
+  그리고 전 페이지 GNB의 Service 드롭다운과 모바일 메뉴에 Shuttle Service 항목을 추가하고,
+  service.html의 02 Shuttle Service 블록에서 btn--soon을 실제 링크로 바꿔야 합니다.
+-->
+<link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/external/cdn.jsdelivr.net/pretendard-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/renew.css">
+<script src="../assets/js/renew.js" defer></script>
+<script src="../assets/js/faq.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "위즈모빌리티 셔틀 서비스",
+      "serviceType": "셔틀버스 운영 (아파트 셔틀 · 출퇴근 셔틀 · 호텔/공항 연계 · MICE 행사 셔틀)",
+      "provider": { "@type": "Organization", "name": "위즈모빌리티", "email": "ops@wizmobility.com", "telephone": "+82-2-6949-3010" },
+      "areaServed": "KR",
+      "description": "이동 수요가 반복되는 거점을 연결하는 정기 노선 셔틀과 MICE 행사 셔틀을 설계하고 운영합니다. 수요 조사, 노선 설계, 차량과 기사 편성, 배차, 탑승자 확인, 운행 관리, 통합 정산까지 제공합니다."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "./index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Service", "item": "./service.html" },
+        { "@type": "ListItem", "position": 3, "name": "Shuttle Service", "item": "./shuttle-service.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "몇 명부터 셔틀을 운영할 수 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "정해진 최소 인원은 없습니다. 이용 인원과 시간대에 맞춰 승합부터 대형 승합까지 차량을 조합하므로, 인원이 적어도 노선이 성립하면 운영할 수 있습니다. 10명 미만의 상시 이동이라면 전용 차량이나 시간제 대절이 더 적합할 수 있습니다." } },
+        { "@type": "Question", "name": "노선과 시간표는 누가 정하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "위즈모빌리티가 고객사와 함께 설계합니다. 이용 인원의 출발지 분포와 시간대를 조사해 노선안을 만들고, 운행을 시작한 뒤에도 이용 데이터를 근거로 노선과 배차 조정을 함께 논의합니다." } },
+        { "@type": "Question", "name": "탑승 대상이 정해진 셔틀도 관리해 주나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "네. 입주민, 임직원, 행사 참가자처럼 탑승 대상이 정해진 노선은 탑승자 확인 절차를 노선 운영에 포함해 관리합니다. 정해진 인원만 이용하도록 확인해 정작 타야 할 사람이 자리를 잃지 않게 합니다." } },
+        { "@type": "Question", "name": "행사 셔틀은 언제까지 문의해야 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "행사 규모에 따라 다릅니다. 참가자 수와 지정 호텔, 행사장 일정이 정해지는 시점에 문의해 주시면 노선과 배차 계획을 함께 만듭니다. 규모가 큰 행사일수록 준비 기간을 여유 있게 잡는 것이 좋습니다." } },
+        { "@type": "Question", "name": "어떤 차량으로 운행하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "이용 인원에 맞춰 승합과 대형 승합을 조합해 편성합니다. 운영 차량은 Fleet 페이지에서 확인할 수 있습니다." } },
+        { "@type": "Question", "name": "운행 중에 이용 인원이 늘거나 줄면 어떻게 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "이용 인원의 변화가 확인되면 노선과 배차 조정을 함께 논의합니다. 이용 내역과 운행 기록은 기간별 리포트와 정산 명세로 전달하므로, 조정이 필요한 시점을 데이터로 함께 확인할 수 있습니다." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ================= GNB ================= -->
+<header class="nav">
+  <a href="./index.html" class="nav__logo"><img src="../assets/images/wizmobility-logo-footer.svg" alt="WIZMOBILITY" height="20"></a>
+  <div class="nav__right">
+    <nav class="menu">
+      <div class="menu-dd">
+        <a class="menu-dd__trigger" href="./service.html">Service <span class="chev">&#9662;</span></a>
+        <div class="menu-dd__menu">
+          <a href="./private-transportation.html">Private Transportation</a>
+          <a href="./shuttle-service.html" class="is-current">Shuttle Service</a>
+          <a href="./executive-service.html">Executive Service</a>
+          <a href="./group-transportation.html">Group Transportation</a>
+        </div>
+      </div>
+      <div class="menu-dd">
+        <a class="menu-dd__trigger" href="./business.html">Business <span class="chev">&#9662;</span></a>
+        <div class="menu-dd__menu">
+          <a href="./maritime.html">Maritime</a>
+          <a href="./aviation.html">Aviation</a>
+          <a href="./medical.html">Medical</a>
+          <a href="./hotel-casino.html">Hotel &amp; Casino</a>
+        </div>
+      </div>
+      <a href="./fleet.html">Fleet</a>
+      <a href="./technology.html">Technology</a>
+      <a href="./about.html">About</a>
+      <div class="menu-dd">
+        <button class="menu-dd__trigger" type="button">Insights <span class="chev">&#9662;</span></button>
+        <div class="menu-dd__menu">
+          <a href="./blog.html">블로그</a>
+          <a href="./cases.html">사례</a>
+        </div>
+      </div>
+    </nav>
+    <div class="lang">
+      <button class="lang__btn" type="button" aria-label="언어 선택">KO <span class="chev">&#9662;</span></button>
+      <div class="lang__menu">
+        <a href="https://www.wizmobility.com/">EN</a>
+        <a href="./index.html" class="is-current">KO</a>
+      </div>
+    </div>
+    <a class="nav__cta" href="./open-account.html">Get Started <span class="nav__cta-arw">&rarr;</span></a>
+    <button class="nav__toggle" type="button" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="./service.html">Service</a>
+  <div class="mobile-menu__group">
+    <a href="./private-transportation.html">&#8212; Private Transportation</a>
+    <a href="./shuttle-service.html">&#8212; Shuttle Service</a>
+    <a href="./executive-service.html">&#8212; Executive Service</a>
+    <a href="./group-transportation.html">&#8212; Group Transportation</a>
+  </div>
+  <a href="./business.html">Business</a>
+  <div class="mobile-menu__group">
+    <a href="./maritime.html">&#8212; Maritime</a>
+    <a href="./aviation.html">&#8212; Aviation</a>
+    <a href="./medical.html">&#8212; Medical</a>
+    <a href="./hotel-casino.html">&#8212; Hotel &amp; Casino</a>
+  </div>
+  <a href="./fleet.html">Fleet</a>
+  <a href="./technology.html">Technology</a>
+  <a href="./about.html">About</a>
+  <div class="mobile-menu__group"><a href="./blog.html">&#8212; 블로그</a><a href="./cases.html">&#8212; 사례</a></div>
+  <a class="mobile-menu__cta" href="./open-account.html">Get Started &rarr;</a>
+</div>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero__media"><img src="../assets/images/shuttle/shuttle-01-hero.jpg" alt="정기 노선을 운행 중인 위즈모빌리티 셔틀 차량"></div>
+    <div class="hero__inner">
+      <h1>수요가 있는 곳은<br>이동할 수 있는 노선이 됩니다</h1>
+      <p>아파트 셔틀과 출퇴근 셔틀부터 행사장 수송까지,<br>이동이 반복되는 구간에 노선을 만들고 정해진 시간에 차량을 운행합니다.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#detail">서비스 알아보기</a>
+        <a class="btn btn--outline-white" href="./open-account.html">운영 상담 문의</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 01. 개요: 두 가지 운영 방식 ================= -->
+  <section class="sec wrap" id="detail">
+    <div class="sec-head sub-hd sub-hd--wide">
+      <h2>셔틀 운행은 노선을 만드는 것부터<br>함께 고민합니다</h2>
+      <p class="lead">위즈모빌리티는 이동 수요가 반복되는 거점을 먼저 확인하고, 그 거점을 연결하는 노선을 설계해 셔틀을 운영합니다.<br>일상적으로 운행하는 생활형 셔틀과 행사 기간에 운행하는 행사 셔틀, 두 가지 방식이 있습니다.</p>
+    </div>
+    <div class="bands bands--wide">
+      <article class="band">
+        <div class="band__img"><img src="../assets/images/shuttle/shuttle-02-daily.jpg" alt="아파트와 역, 호텔, 공항을 연결하는 생활형 정기 노선 셔틀"></div>
+        <div>
+          <div class="band__n">01</div>
+          <h3>생활형 셔틀 · 정기 노선</h3>
+          <p>아파트 셔틀, 출퇴근 셔틀, 호텔과 공항을 잇는 연계 노선처럼 이동이 매일 반복되는 거점을 연결합니다. 필요로 하는 거점 사이에 주요 노선을 확보해 정해진 시간표대로 운행하고, 탑승자 확인과 운행 기록 관리까지 노선 운영에 필요한 일을 함께 맡습니다. 쌓인 이용 데이터는 노선을 함께 다듬는 근거가 됩니다.</p>
+        </div>
+      </article>
+      <article class="band band--rev">
+        <div class="band__img"><img src="../assets/images/shuttle/shuttle-03-event.jpg" alt="행사장 앞에서 참가자들이 탑승하는 MICE 행사 셔틀버스"></div>
+        <div>
+          <div class="band__n">02</div>
+          <h3>행사 셔틀 · MICE</h3>
+          <p>국제회의, 전시회, 컨벤션 같은 MICE 행사에 필요한 셔틀 노선을 만들고 운영합니다. 공항과 지정 호텔, 행사장을 잇는 참가자 수송부터 만찬과 기업 방문 같은 부대행사 이동까지 행사 규모와 일정에 맞춰 노선을 설계합니다. 참가자가 행사에서 처음 만나는 접점이 셔틀이기에, 현장 운영까지 한 팀이 책임집니다.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= 02. 생활형 셔틀 ================= -->
+  <section class="splitrows" style="background:var(--warm)">
+    <div>
+      <div class="sec-head sub-hd">
+        <h2>생활형 셔틀:<br>매일 다니는 길을 노선으로</h2>
+        <p class="lead">출퇴근과 등하교, 고객 송영처럼 반복되는 이동은 건별 배차보다 정기 노선이 효율적입니다. 수요가 모이는 거점을 연결하는 주요 노선을 확보하고 시간표대로 운행합니다.</p>
+      </div>
+      <div class="splitrows__rows">
+        <div class="splitrows__row"><h3>아파트 셔틀</h3><p>아파트 단지와 지하철역, 학교, 상업 시설을 연결해 입주민의 이동을 돕습니다.</p></div>
+        <div class="splitrows__row"><h3>출퇴근 셔틀</h3><p>사업장과 주거 밀집 지역, 주요 역을 연결해 출퇴근 시간을 줄입니다.</p></div>
+        <div class="splitrows__row"><h3>호텔 · 리조트 셔틀</h3><p>호텔과 공항, 역, 주요 관광지를 연결해 투숙객의 이동을 돕습니다.</p></div>
+        <div class="splitrows__row"><h3>공항 · 거점 연계 셔틀</h3><p>공항, KTX역, 사업장, 기숙사처럼 수요가 모이는 거점 사이를 정기 운행합니다.</p></div>
+      </div>
+      <p class="splitrows__note">· 이용 대상이 정해진 노선은 탑승자 확인 절차를 함께 설계합니다.</p>
+    </div>
+    <div class="splitrows__img"><img src="../assets/images/shuttle/shuttle-04-route.jpg" alt="정해진 시간표대로 거점을 오가는 생활형 셔틀 차량"></div>
+  </section>
+
+  <!-- ================= 03. 행사 셔틀 ================= -->
+  <!-- ================= 행사 셔틀 ================= -->
+  <!-- ================= 행사 셔틀 ================= -->
+  <section class="evband">
+    <img src="../assets/images/shuttle/shuttle-03-event.jpg" alt="">
+    <div class="evband__inner">
+      <div class="evband__kick">EVENT SHUTTLE</div>
+      <h2>행사 셔틀:<br>좋은 고객 경험을 만드는 일</h2>
+      <p class="lead">MICE 행사에서 셔틀은 참가자가 행사를 만나는 첫 접점입니다. 등록 인원과 세션 일정에 맞춰 노선과 배차를 설계하고, 행사 기간 내내 현장에서 운영합니다.</p>
+      <div class="evcards">
+        <article class="evcard">
+          <div class="evcard__n">01<i></i><b>도착 · 출발</b></div>
+          <h3>공항 · 역 연계</h3>
+          <p>참가자의 도착과 출발이 몰리는 날에 공항과 역을 연결합니다.</p>
+          <ul><li>항공편 시간 연동 배차</li><li>수하물 공간 확보</li><li>심야 · 새벽 운행</li></ul>
+        </article>
+        <article class="evcard">
+          <div class="evcard__n">02<i></i><b>본행사</b></div>
+          <h3>행사장 순환 셔틀</h3>
+          <p>지정 호텔과 행사장 사이를 정해진 배차 간격으로 순환합니다.</p>
+          <ul><li>개막 · 폐막 집중 배차</li><li>세션 일정 연동 시간표</li><li>정류장 안내와 탑승 확인</li></ul>
+        </article>
+        <article class="evcard">
+          <div class="evcard__n">03<i></i><b>부대행사</b></div>
+          <h3>부대행사 · 만찬 이동</h3>
+          <p>본행사 밖의 일정에 맞춰 별도 노선을 편성합니다.</p>
+          <ul><li>환영 만찬 · 갈라 디너</li><li>기업 방문 · 산업 시찰</li><li>동반 관광 프로그램</li></ul>
+        </article>
+      </div>
+    </div>
+    <p class="evband__note">· 30명 이상 행사에는 현장 운영 매니저가 함께합니다. 연사와 VIP의 개별 이동까지 필요한 행사라면 <a href="./group-transportation.html">단체 수송(Group Transportation)</a>과 하나의 운영 건으로 묶어 진행할 수 있습니다.</p>
+  </section>
+
+  <!-- ================= 04. 노선 설계 시 함께 확인하는 것 ================= -->
+  <!-- ================= 노선 설계 ================= -->
+  <section class="plan">
+    <div class="plan__hd">
+      <h2>노선 설계,<br>이런 것부터<br>함께 확인합니다</h2>
+      <p>정해진 양식은 필요 없습니다. 출발지와 도착지만 있어도 상담을 시작할 수 있고, 아래 네 가지를 함께 정리하면 노선안이 나옵니다.</p>
+    </div>
+    <div class="plan__grid">
+      <article class="plan__card">
+        <div class="plan__n">01</div>
+        <h3>거점과 정차 지점</h3>
+        <p>출발지와 도착지, 중간에 서야 할 곳을 확인합니다.</p>
+      </article>
+      <article class="plan__card">
+        <div class="plan__n">02</div>
+        <h3>시간대와 배차 간격</h3>
+        <p>이동이 몰리는 시간대와 운행 횟수를 정리합니다.</p>
+      </article>
+      <article class="plan__card">
+        <div class="plan__n">03</div>
+        <h3>이용 인원과 차량</h3>
+        <p>시간대별 이용 인원에 맞는 차량 크기와 대수를 정합니다.</p>
+      </article>
+      <article class="plan__card">
+        <div class="plan__n">04</div>
+        <h3>탑승 대상과 확인 방식</h3>
+        <p>누가 타는 노선인지, 탑승 확인은 어떻게 할지 정합니다.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= 05. 셔틀 운영 솔루션이 필요한 이유 ================= -->
+  <!-- ================= 셔틀 운영 솔루션 ================= -->
+  <section class="sec sec--warm wrap">
+    <div class="sec-head sub-hd">
+      <h2>셔틀 운영 솔루션이 필요한 이유</h2>
+      <p class="lead">자체적으로 운영하는 과정에서 겪는 어려움을 위즈모빌리티가 해결해 드립니다.</p>
+    </div>
+    <div class="opsgrid">
+      <article class="opscard">
+        <div class="opscard__b">01</div>
+        <h3>수요 조사 · 노선 설계</h3>
+        <p>이용 인원과 시간대를 조사해 노선과 시간표를 설계합니다.</p>
+      </article>
+      <article class="opscard">
+        <div class="opscard__b">02</div>
+        <h3>차량 · 기사 편성</h3>
+        <p>이용 인원에 맞춰 승합과 대형 승합을 편성합니다.</p>
+      </article>
+      <article class="opscard">
+        <div class="opscard__b">03</div>
+        <h3>정기 배차 · 시간표 운영</h3>
+        <p>확정된 시간표대로 차량을 배차하고 운행을 준비합니다.</p>
+      </article>
+      <article class="opscard">
+        <div class="opscard__b">04</div>
+        <h3>탑승자 확인 · 검표</h3>
+        <p>탑승 대상을 확인하고 정해진 인원만 이용하도록 관리합니다.</p>
+      </article>
+      <article class="opscard">
+        <div class="opscard__b">05</div>
+        <h3>실시간 운행 관리</h3>
+        <p>차량 위치와 운행 상태를 한 화면에서 확인합니다.</p>
+      </article>
+      <article class="opscard">
+        <div class="opscard__b">06</div>
+        <h3>이용 리포트 · 통합 정산</h3>
+        <p>노선별 이용 기록과 정산 내역을 하나의 명세로 정리합니다.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= 06. 직접 운영이 어려운 이유 ================= -->
+  <section class="outcome">
+    <img src="../assets/images/shuttle/shuttle-05-outcome.jpg" alt="">
+    <div class="outcome__inner">
+      <h2>셔틀은 차량을 구하는 일보다<br>유지하는 일이 어렵습니다</h2>
+      <p class="lead">수요는 아침과 저녁, 행사 전후에 몰리는데 차량과 기사는 하루 종일 유지해야 합니다. 그 부담을 위즈모빌리티가 대신 맡습니다.</p>
+      <div class="outcome__grid outcome__grid--4">
+        <div class="outcome__cell">
+          <div class="outcome__n">01</div>
+          <h3>유연한 차량 운영</h3>
+          <p>수요가 몰리는 시간을 기준으로 차량을 보유하면 나머지 시간은 비용으로 남습니다. 위즈모빌리티는 필요한 시간에 필요한 만큼만 운영합니다.</p>
+        </div>
+        <div class="outcome__cell">
+          <div class="outcome__n">02</div>
+          <h3>탑승자 확인 · 검표</h3>
+          <p>셔틀은 시내버스와 달리 탈 수 있는 사람이 정해져 있습니다. 탑승자 확인 절차를 노선 운영에 포함해 관리합니다.</p>
+        </div>
+        <div class="outcome__cell">
+          <div class="outcome__n">03</div>
+          <h3>기사 · 차량 관리</h3>
+          <p>기사 채용과 근태, 정비와 보험까지 챙길 일이 이어집니다. 검증된 기사와 차량으로 운행하고 결원은 대체 배차로 메웁니다.</p>
+        </div>
+        <div class="outcome__cell">
+          <div class="outcome__n">04</div>
+          <h3>운행 관리 · 정산</h3>
+          <p>배차표와 운행 기록을 수기로 챙길 필요가 없습니다. 시스템으로 운행을 관리하고 명세와 리포트로 정리해 전달합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 07. FAQ ================= -->
+  <section class="sec wrap">
+    <div class="sec-head sub-hd">
+      <h2>자주 묻는 질문</h2>
+      <p class="lead">셔틀 운영을 검토할 때 가장 많이 받는 질문을 모았습니다.</p>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false">
+          <span>Q. 몇 명부터 셔틀을 운영할 수 있나요?</span>
+          <i class="faq__ico" aria-hidden="true"></i>
+        </button>
+        <div class="faq__a" aria-hidden="true"><div><p>정해진 최소 인원은 없습니다. 이용 인원과 시간대에 맞춰 승합부터 대형 승합까지 차량을 조합하므로, 인원이 적어도 노선이 성립하면 운영할 수 있습니다. 10명 미만의 상시 이동이라면 <a href="./private-transportation.html">전용 차량이나 시간제 대절</a>이 더 적합할 수 있습니다.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false">
+          <span>Q. 노선과 시간표는 누가 정하나요?</span>
+          <i class="faq__ico" aria-hidden="true"></i>
+        </button>
+        <div class="faq__a" aria-hidden="true"><div><p>위즈모빌리티가 고객사와 함께 설계합니다. 이용 인원의 출발지 분포와 시간대를 조사해 노선안을 만들고, 운행을 시작한 뒤에도 이용 데이터를 근거로 노선과 배차 조정을 함께 논의합니다.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false">
+          <span>Q. 탑승 대상이 정해진 셔틀도 관리해 주나요?</span>
+          <i class="faq__ico" aria-hidden="true"></i>
+        </button>
+        <div class="faq__a" aria-hidden="true"><div><p>네. 입주민, 임직원, 행사 참가자처럼 탑승 대상이 정해진 노선은 탑승자 확인 절차를 노선 운영에 포함해 관리합니다. 정해진 인원만 이용하도록 확인해 정작 타야 할 사람이 자리를 잃지 않게 합니다.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false">
+          <span>Q. 행사 셔틀은 언제까지 문의해야 하나요?</span>
+          <i class="faq__ico" aria-hidden="true"></i>
+        </button>
+        <div class="faq__a" aria-hidden="true"><div><p>행사 규모에 따라 다릅니다. 참가자 수와 지정 호텔, 행사장 일정이 정해지는 시점에 문의해 주시면 노선과 배차 계획을 함께 만듭니다. 규모가 큰 행사일수록 준비 기간을 여유 있게 잡는 것이 좋습니다.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false">
+          <span>Q. 어떤 차량으로 운행하나요?</span>
+          <i class="faq__ico" aria-hidden="true"></i>
+        </button>
+        <div class="faq__a" aria-hidden="true"><div><p>이용 인원에 맞춰 승합과 대형 승합을 조합해 편성합니다. 운영 차량은 <a href="./fleet.html">Fleet 페이지</a>에서 확인할 수 있습니다.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false">
+          <span>Q. 운행 중에 이용 인원이 늘거나 줄면 어떻게 하나요?</span>
+          <i class="faq__ico" aria-hidden="true"></i>
+        </button>
+        <div class="faq__a" aria-hidden="true"><div><p>이용 인원의 변화가 확인되면 노선과 배차 조정을 함께 논의합니다. 이용 내역과 운행 기록은 기간별 리포트와 정산 명세로 전달하므로, 조정이 필요한 시점을 데이터로 함께 확인할 수 있습니다.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="subcta">
+    <img src="../assets/images/shuttle/shuttle-06-cta-band.jpg" alt="">
+    <div class="subcta__inner">
+      <h2>노선 설계 단계부터<br>함께 논의해 드립니다.</h2>
+      <p>이용 인원과 시간대, 출발지와 도착지를 알려주시면 필요한 노선과 차량 편성을 제안합니다.</p>
+      <a class="btn btn--white" href="./open-account.html">운영 상담 문의</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <img class="site-footer__logo" src="../assets/images/wizmobility-logo-footer.svg" alt="WIZMOBILITY">
+  <address>
+    <span>대표이사: 이문선</span>
+    <span>주소: 서울특별시 강서구 양천로 30길 123-28, 5층</span>
+    <span>전화번호: (+82)-2-6949-3010</span>
+    <span>E-mail: ops@wizmobility.com</span>
+    <span>사업자번호: 390-88-03529</span>
+  </address>
+  <div class="site-footer__line"></div>
+  <div class="site-footer__bottom">
+    <div>Copyright © Wizmobility. All rights reserved.</div>
+    <nav class="site-footer__links">
+      <a href="./terms.html">서비스 이용약관</a>
+      <a href="./location-terms.html">위치기반서비스 이용약관</a>
+      <a href="./privacy.html"><strong>개인정보 처리방침</strong></a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

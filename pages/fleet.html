@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="../assets/css/ko.css">
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/ko.js" defer></script>
+  <script src="../assets/js/faq.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -76,13 +77,14 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   <header class="nav">
-  <a href="./index.html" class="logo"><img src="../assets/images/wizmobility-logo-footer.svg" alt="WIZMOBILITY" height="20"></a>
+  <a href="./index.html" class="logo"><img fetchpriority="high" decoding="async" src="../assets/images/wizmobility-logo-footer.svg" alt="WIZMOBILITY" height="20"></a>
   <div class="nav-right">
     <nav class="menu">
       <div class="menu-dd">
         <a class="menu-dd__trigger" href="./service.html" data-nav="service">Service <span class="lang-chevron">&#9662;</span></a>
         <div class="lang-menu menu-dd__menu">
           <a href="./private-transportation.html" class="lang-option">Private Transportation</a>
+          <a href="./shuttle-service.html" class="lang-option">Shuttle Service</a>
           <a href="./executive-service.html" class="lang-option">Executive Service</a>
           <a href="./group-transportation.html" class="lang-option">Group Transportation</a>
         </div>
@@ -126,6 +128,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="./service.html" data-nav="service">Service</a>
   <div class="mobile-dd">
     <a href="./private-transportation.html">— Private Transportation</a>
+    <a href="./shuttle-service.html">— Shuttle Service</a>
     <a href="./executive-service.html">— Executive Service</a>
     <a href="./group-transportation.html">— Group Transportation</a>
   </div>
@@ -155,7 +158,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1>운영 목적에 맞는<br />프리미엄 차량 라인업</h1>
         <p>VIP 의전부터 공항 이동, 셔틀, MICE 및 단체 수송까지 서비스 목적과 인원 규모에 맞는 차량을 제공합니다.</p>
       </div>
-      <div class="fleet-hero-visual" style="position:relative;overflow:hidden;"><img src="../assets/images/fleet/fleet_hero_full-lineup.webp" alt="WIZMO 프리미엄 차량 라인업" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+      <div class="fleet-hero-visual" style="position:relative;overflow:hidden;"><img fetchpriority="high" decoding="async" width="3168" height="1344" src="../assets/images/fleet/fleet_hero_full-lineup.webp" alt="위즈모빌리티 의전 차량 라인업 세단과 승합, 미니버스" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
     </section>
 
     <section class="section">
@@ -177,15 +180,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="fleet-detail">
         <div class="fleet-large-photo" id="fleetPhoto">
           <div class="ko-gallery-track">
-            <div class="ko-gallery-slide"><img src="../assets/images/fleet/fleet_s-class_exterior-studio.webp" alt="Mercedes-Benz S-Class 외관"></div>
-            <div class="ko-gallery-slide"><img src="../assets/images/fleet/fleet_s-class_interior-rear.webp" alt="Mercedes-Benz S-Class 실내"></div>
-            <div class="ko-gallery-slide"><img src="../assets/images/fleet/fleet_s-class_trunk-luggage.webp" alt="Mercedes-Benz S-Class 트렁크"></div>
+            <div class="ko-gallery-slide"><img loading="lazy" decoding="async" width="2400" height="1792" src="../assets/images/fleet/fleet_s-class_exterior-studio.webp" alt="메르세데스 벤츠 S클래스 의전 차량 외관"></div>
+            <div class="ko-gallery-slide"><img loading="lazy" decoding="async" width="2752" height="1536" src="../assets/images/fleet/fleet_s-class_interior-rear.webp" alt="벤츠 S클래스 뒷좌석 실내"></div>
+            <div class="ko-gallery-slide"><img loading="lazy" decoding="async" width="2752" height="1536" src="../assets/images/fleet/fleet_s-class_trunk-luggage.webp" alt="벤츠 S클래스 트렁크 수하물 적재 공간"></div>
           </div>
         </div>
         <div class="fleet-info-panel">
           <div class="fleet-class-label" id="fleetClass">EXECUTIVE SEDAN</div>
           <h2 id="fleetName">Mercedes-Benz S-Class</h2>
-          <p class="fleet-desc" id="fleetDesc">최고급 세단의 안락함과 품격을 기반으로 VIP 의전과 주요 내빈 이동에 적합한 프리미엄 차량입니다.</p>
+          <p class="fleet-desc" id="fleetDesc">최고급 세단의 안락함과 품격을 기반으로 VIP 의전과 주요 내빈 이동에 적합한 차량입니다. 뒷좌석 공간과 정숙성이 가장 중요한 일정, 첫인상이 곧 기업의 인상이 되는 자리에 배정합니다. 공항 영접과 호텔 이동, 정부와 기관 행사 의전에 주로 운영합니다.</p>
 
           <div class="fleet-spec">
             <div class="spec-box"><b>탑승 인원</b><span id="fleetPax">3인</span></div>
@@ -214,10 +217,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <article class="card"><div class="card-num">04</div><h3>Fleet Maintenance</h3><p>정기 차량 점검을 통해 안정적인 차량 상태와 서비스 품질을 유지합니다.</p></article>
       </div>
     </section>
+
+    <!-- ================= 인원·수하물로 고르는 차량 ================= -->
+    <section class="section">
+      <div class="section-title">
+        <h2>인원과 수하물로 고르는 차량</h2>
+        <p>탑승 인원과 수하물 양을 기준으로 권장 차량을 확인할 수 있습니다.</p>
+      </div>
+      <div class="pick-table">
+        <table>
+          <thead><tr><th>인원</th><th>권장 차량</th><th>대표 용도</th></tr></thead>
+          <tbody>
+            <tr><td>1 ~ 3인</td><td>S-Class · G90 · G80</td><td>VIP 의전, 임원 이동, 비즈니스 출장</td></tr>
+            <tr><td>4 ~ 6인</td><td>Carnival</td><td>공항 픽업, 가족 단위 방한, 골프</td></tr>
+            <tr><td>7 ~ 10인</td><td>Staria</td><td>소그룹 이동, 셔틀</td></tr>
+            <tr><td>11 ~ 15인</td><td>Solati · Sprinter</td><td>중규모 단체, 연사 그룹, 선원 교대</td></tr>
+            <tr><td>16인 이상</td><td>차량 조합 편성</td><td>MICE, 컨벤션, 기업행사</td></tr>
+          </tbody>
+        </table>
+        <p class="pick-note">수하물이 1인당 대형 캐리어 1개 이상이면 한 단계 위 차량을 권장합니다. 공항 픽업은 도착 인원과 수하물을 예약 단계에서 확인해 차량을 배정합니다.</p>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section soft">
+      <div class="section-title">
+        <h2>자주 묻는 질문</h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            <span>Q. 차량을 직접 지정할 수 있나요?</span>
+            <i class="faq__ico" aria-hidden="true"></i>
+          </button>
+          <div class="faq__a" aria-hidden="true"><div><p>가능합니다. 예약 단계에서 차량 등급을 선택할 수 있으며 행사나 정기 운영은 같은 차량과 기사를 기간 내내 고정 배정할 수 있습니다.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            <span>Q. 차량은 렌터카인가요?</span>
+            <i class="faq__ico" aria-hidden="true"></i>
+          </button>
+          <div class="faq__a" aria-hidden="true"><div><p>아닙니다. 위즈모빌리티는 국토교통부 플랫폼운송사업(Type1) 허가를 기반으로 영업용 차량과 영업용 보험 체계로 운행하며 전문 기사가 직접 운행합니다.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            <span>Q. 차량 관리는 어떻게 하나요?</span>
+            <i class="faq__ico" aria-hidden="true"></i>
+          </button>
+          <div class="faq__a" aria-hidden="true"><div><p>제조 8년 이내 차량을 운영하며 5단계 점검 항목을 확인한 뒤 배차합니다. 전 차량 검은색 외관에 GPS가 장착되어 있습니다.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            <span>Q. 여러 대를 동시에 운영할 수 있나요?</span>
+            <i class="faq__ico" aria-hidden="true"></i>
+          </button>
+          <div class="faq__a" aria-hidden="true"><div><p>가능합니다. 행사 전 차량을 하나의 운영 건으로 묶어 동시에 배차하고 차량별 위치와 진행 상태를 한 화면에서 확인합니다.</p></div></div>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="site-footer">
   <div class="footer-inner">
-    <img class="footer-logo" src="../assets/images/wizmobility-logo-footer.svg" alt="WIZMOBILITY" width="433" height="36">
+    <img loading="lazy" decoding="async" class="footer-logo" src="../assets/images/wizmobility-logo-footer.svg" alt="WIZMOBILITY" width="433" height="36">
     <address class="footer-info">
       <span>대표이사: 이문선</span>
       <span>주소: 서울특별시 강서구 양천로 30길 123-28, 5층</span>

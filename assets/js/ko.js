@@ -1,94 +1,94 @@
     const fleetData = {
       sclass: {
         photos: [
-          { src: '../assets/images/fleet/fleet_s-class_exterior-studio.webp', alt: 'Mercedes-Benz S-Class 외관' },
-          { src: '../assets/images/fleet/fleet_s-class_interior-rear.webp', alt: 'Mercedes-Benz S-Class 실내' },
-          { src: '../assets/images/fleet/fleet_s-class_trunk-luggage.webp', alt: 'Mercedes-Benz S-Class 트렁크' }
+          { src: '../assets/images/fleet/fleet_s-class_exterior-studio.webp', alt: '메르세데스 벤츠 S클래스 의전 차량 외관' },
+          { src: '../assets/images/fleet/fleet_s-class_interior-rear.webp', alt: '벤츠 S클래스 뒷좌석 실내' },
+          { src: '../assets/images/fleet/fleet_s-class_trunk-luggage.webp', alt: '벤츠 S클래스 트렁크 수하물 적재 공간' }
         ],
         cls: 'EXECUTIVE SEDAN',
         name: 'Mercedes-Benz S-Class',
-        desc: '최고급 세단의 안락함과 품격을 기반으로 VIP 의전과 주요 내빈 이동에 적합한 프리미엄 차량입니다.',
+        desc: '최고급 세단의 안락함과 품격을 기반으로 VIP 의전과 주요 내빈 이동에 적합한 차량입니다. 뒷좌석 공간과 정숙성이 가장 중요한 일정, 첫인상이 곧 기업의 인상이 되는 자리에 배정합니다. 공항 영접과 호텔 이동, 정부와 기관 행사 의전에 주로 운영합니다.',
         pax: '3인',
         bag: '24인치 2개',
         uses: ['VIP 의전', '주요 내빈 이동', '프리미엄 고객 서비스']
       },
       g90: {
         photos: [
-          { src: '../assets/images/fleet/fleet_g90_exterior-studio.webp', alt: 'Genesis G90 외관' },
-          { src: '../assets/images/fleet/fleet_g90_interior-rear.webp', alt: 'Genesis G90 실내' },
-          { src: '../assets/images/fleet/fleet_g90_trunk-luggage.webp', alt: 'Genesis G90 트렁크' }
+          { src: '../assets/images/fleet/fleet_g90_exterior-studio.webp', alt: '제네시스 G90 의전 차량 외관' },
+          { src: '../assets/images/fleet/fleet_g90_interior-rear.webp', alt: '제네시스 G90 뒷좌석 실내' },
+          { src: '../assets/images/fleet/fleet_g90_trunk-luggage.webp', alt: '제네시스 G90 트렁크 수하물 적재 공간' }
         ],
         cls: 'EXECUTIVE SEDAN',
         name: 'Genesis G90',
-        desc: '넓고 고급스러운 실내 공간을 제공하는 대표 의전 차량으로 VIP 고객과 기업 임원 이동에 적합합니다.',
+        desc: '국내 최고급 세단으로 기업 임원과 초청 내빈 이동에 폭넓게 운영합니다. 뒷좌석 편의 사양과 승차감이 안정적이어서 반복적인 임원 이동이나 다일정 출장에 적합합니다. 국내 브랜드 차량을 선호하는 관공서와 공공기관 행사에도 자주 배정됩니다.',
         pax: '3인',
         bag: '24인치 2~3개',
-        uses: ['VIP 고객 이동', '호텔·카지노 의전', '기업 임원 이동']
+        uses: ['임원 이동', '내빈 영접', '기관 행사']
       },
       g80: {
         photos: [
-          { src: '../assets/images/fleet/fleet_g80_exterior-studio.webp', alt: 'Genesis G80 외관' },
-          { src: '../assets/images/fleet/fleet_g80_interior-rear.webp', alt: 'Genesis G80 실내' },
-          { src: '../assets/images/fleet/fleet_g80_trunk-luggage.webp', alt: 'Genesis G80 트렁크' }
+          { src: '../assets/images/fleet/fleet_g80_exterior-studio.webp', alt: '제네시스 G80 비즈니스 세단 외관' },
+          { src: '../assets/images/fleet/fleet_g80_interior-rear.webp', alt: '제네시스 G80 뒷좌석 실내' },
+          { src: '../assets/images/fleet/fleet_g80_trunk-luggage.webp', alt: '제네시스 G80 트렁크 수하물 적재 공간' }
         ],
         cls: 'BUSINESS SEDAN',
         name: 'Genesis G80',
-        desc: '비즈니스 이동에 적합한 세단으로 공항 이동, 출장, 법인 고객 이동에 안정적인 승차감을 제공합니다.',
+        desc: '비즈니스 출장과 일상적인 기업 이동에 균형이 좋은 세단입니다. 공항 픽업과 샌딩, 미팅 간 이동, 시간제 대절에 두루 운영하며 차량 안에서 자료를 검토하거나 통화를 이어가야 하는 일정에 적합합니다.',
         pax: '3인',
         bag: '24인치 2개',
-        uses: ['비즈니스 출장', '공항 이동', '법인 고객 이동']
+        uses: ['비즈니스 출장', '공항 이동', '시간제 대절']
       },
       carnival: {
         photos: [
-          { src: '../assets/images/fleet/fleet_carnival_exterior-studio.webp', alt: 'Kia Carnival 외관' },
-          { src: '../assets/images/fleet/fleet_carnival_interior-seats.webp', alt: 'Kia Carnival 실내' },
-          { src: '../assets/images/fleet/fleet_carnival_trunk-luggage.webp', alt: 'Kia Carnival 트렁크' }
+          { src: '../assets/images/fleet/fleet_carnival_exterior-studio.webp', alt: '기아 카니발 프리미엄 밴 외관' },
+          { src: '../assets/images/fleet/fleet_carnival_interior-seats.webp', alt: '기아 카니발 뒷좌석 실내' },
+          { src: '../assets/images/fleet/fleet_carnival_trunk-luggage.webp', alt: '기아 카니발 트렁크 수하물 적재 공간' }
         ],
         cls: 'PREMIUM VAN',
         name: 'Kia Carnival',
-        desc: '넉넉한 탑승 공간과 수하물 적재 공간을 갖춘 차량으로 가족, 의료관광, 소규모 그룹 이동에 적합합니다.',
+        desc: '소그룹 이동과 수하물이 많은 공항 픽업에 가장 널리 쓰이는 차량입니다. 4인에서 6인 규모의 가족 단위 방한객, 골프 라운딩, 의료관광 환자와 보호자 이동처럼 인원과 짐을 함께 실어야 하는 일정에 적합합니다. 리무진 사양은 뒷좌석 간격이 넓어 장거리 이동에도 부담이 적습니다.',
         pax: '6인',
         bag: '24인치 6개',
-        uses: ['소규모 그룹 이동', '의료관광 고객', '호텔 고객 이동']
+        uses: ['소그룹 이동', '공항 픽업', '골프', '의료관광']
       },
       staria: {
         photos: [
-          { src: '../assets/images/fleet/fleet_staria_exterior-studio.webp', alt: 'Hyundai Staria 외관' },
-          { src: '../assets/images/fleet/fleet_staria_interior-seats.webp', alt: 'Hyundai Staria 실내' },
-          { src: '../assets/images/fleet/fleet_staria_trunk-luggage.webp', alt: 'Hyundai Staria 트렁크' }
+          { src: '../assets/images/fleet/fleet_staria_exterior-studio.webp', alt: '현대 스타리아 승합 차량 외관' },
+          { src: '../assets/images/fleet/fleet_staria_interior-seats.webp', alt: '현대 스타리아 좌석 실내' },
+          { src: '../assets/images/fleet/fleet_staria_trunk-luggage.webp', alt: '현대 스타리아 수하물 적재 공간' }
         ],
         cls: 'PREMIUM VAN',
         name: 'Hyundai Staria',
-        desc: '여유 있는 실내 공간을 기반으로 공항 셔틀, 기업 셔틀, 중소규모 단체 이동에 활용하기 좋은 승합 차량입니다.',
+        desc: '임직원 셔틀과 행사 참가자 이동에 운영하는 승합 차량입니다. 실내 높이가 넉넉해 승하차가 잦은 셔틀 구간에 적합하고, 여러 대를 편성해 단체 수송의 기본 단위로 사용합니다. 호텔과 기업, 공항, 행사장을 잇는 정기 노선에 자주 투입됩니다.',
         pax: '7~9인',
         bag: '7~9개',
-        uses: ['공항 셔틀', '기업 셔틀', '중소규모 단체 이동']
+        uses: ['셔틀 운영', '그룹 이동', '행사 수송']
       },
       solati: {
         photos: [
-          { src: '../assets/images/fleet/fleet_solati_exterior-studio.webp', alt: 'Hyundai Solati 외관' },
-          { src: '../assets/images/fleet/fleet_solati_interior-seats.webp', alt: 'Hyundai Solati 실내' },
-          { src: '../assets/images/fleet/fleet_solati_trunk-luggage.webp', alt: 'Hyundai Solati 트렁크' }
+          { src: '../assets/images/fleet/fleet_solati_exterior-studio.webp', alt: '현대 솔라티 미니버스 외관' },
+          { src: '../assets/images/fleet/fleet_solati_interior-seats.webp', alt: '현대 솔라티 좌석 실내' },
+          { src: '../assets/images/fleet/fleet_solati_trunk-luggage.webp', alt: '현대 솔라티 수하물 적재 공간' }
         ],
         cls: 'GROUP TRANSPORTATION',
         name: 'Hyundai Solati',
-        desc: '단체 인원 수송에 적합한 대형 승합 차량으로 MICE, 컨벤션, 행사 이동에 효율적인 운영이 가능합니다.',
+        desc: '15인 내외 단체 이동에 적합한 미니버스입니다. 중규모 행사 참가단이나 워크숍 단체 이동에 운영하며, 승합보다 인원이 많고 대형 버스를 쓰기에는 동선이 좁은 구간에서 특히 효율적입니다. 선원 교대에서는 표준 로테이션 단위로 사용합니다.',
         pax: '13인',
         bag: '단체 적재 가능',
-        uses: ['MICE 행사', '컨벤션', '단체 수송']
+        uses: ['중규모 단체', '워크숍', '선원 교대']
       },
       sprinter: {
         photos: [
-          { src: '../assets/images/fleet/fleet_sprinter_exterior-studio.webp', alt: 'Mercedes-Benz Sprinter 외관' },
-          { src: '../assets/images/fleet/fleet_sprinter_interior-vip.webp', alt: 'Mercedes-Benz Sprinter 실내' },
-          { src: '../assets/images/fleet/fleet_sprinter_trunk-luggage.webp', alt: 'Mercedes-Benz Sprinter 트렁크' }
+          { src: '../assets/images/fleet/fleet_sprinter_exterior-studio.webp', alt: '메르세데스 벤츠 스프린터 프리미엄 미니버스 외관' },
+          { src: '../assets/images/fleet/fleet_sprinter_interior-vip.webp', alt: '벤츠 스프린터 좌석 실내' },
+          { src: '../assets/images/fleet/fleet_sprinter_trunk-luggage.webp', alt: '벤츠 스프린터 수하물 적재 공간' }
         ],
         cls: 'PREMIUM GROUP',
         name: 'Mercedes-Benz Sprinter',
-        desc: '프리미엄 그룹 이동을 위한 대형 승합 차량으로 VIP 그룹, 호텔·카지노 고객, 프리미엄 셔틀에 적합합니다.',
+        desc: '프리미엄 사양의 미니버스로 의전 수준을 유지하면서 단체 이동이 필요한 일정에 운영합니다. 국제회의 연사 그룹, 기업 인센티브 투어, VIP 동반 단체처럼 인원은 많지만 응대 품질을 낮출 수 없는 경우에 배정합니다.',
         pax: '12~15인',
         bag: '대형 적재 가능',
-        uses: ['VIP 그룹 이동', '프리미엄 셔틀', '호텔·카지노 전용 서비스']
+        uses: ['연사 그룹', '인센티브 투어', 'VIP 단체']
       }
     };
 
