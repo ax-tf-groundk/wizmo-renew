@@ -290,8 +290,18 @@ button{font-family:inherit;cursor:pointer}
     flex-direction:column;padding:12px 16px 24px;
   }
   .mobile-menu.is-open{display:flex}
-  .mobile-menu>a,.mobile-menu__group>a{padding:14px 4px;font-size:17px;font-weight:700;border-bottom:1px solid #f2f2f2}
-  .mobile-menu__group>a{padding-left:16px;font-size:15px;font-weight:500}
+  .mobile-menu{max-height:calc(100dvh - var(--nav-h));overflow-y:auto;overscroll-behavior:contain}
+  .mobile-menu>a{padding:14px 4px;font-size:17px;font-weight:700;border-bottom:1px solid #f2f2f2}
+  /* 하위 메뉴: 항목마다 한 줄 */
+  .mobile-menu__group{display:flex;flex-direction:column;padding:6px 0 10px;border-bottom:1px solid #f2f2f2}
+  .mobile-menu__group>a{display:block;padding:8px 16px;font-size:15px;font-weight:500;color:#333}
+  .mobile-menu__group>a:hover{color:var(--bur)}
+  .mobile-menu__label{display:block;padding:10px 4px 6px;font-size:17px;font-weight:700;color:#222}
+  /* 언어 전환 */
+  .mobile-lang{display:flex;align-items:center;gap:8px;padding:16px 4px;font-size:15px;font-weight:700;border-bottom:1px solid #f2f2f2}
+  .mobile-lang__cur{color:var(--bur)}
+  .mobile-lang__sep{color:#ccc}
+  .mobile-lang a{color:var(--ink)}
   .svc-card{padding:24px}
   .svc-card__body h3{font-size:22px}
   .svc-card__body p{font-size:16px}
@@ -1456,4 +1466,35 @@ button{font-family:inherit;cursor:pointer}
   .evband,.plan{padding:72px var(--pad)}
   .evband h2,.plan__hd h2{font-size:30px}
   .evcards,.opsgrid,.plan__grid{grid-template-columns:1fr}
+}
+
+/* ==========================================================================
+   모바일 보정 — 2026-11-18
+   데스크톱 시안의 강제 줄바꿈(<br>)과 제목 크기가 좁은 화면에서
+   한두 단어짜리 줄을 만드는 문제를 정리한다.
+   제목 크기는 페이지별 규칙(.xx h2 등)보다 확실히 이기도록 !important 사용.
+   ========================================================================== */
+@media (max-width:1023px){
+  /* 홈 플랫폼 3분할: 가로 아코디언 → 세로로 쌓고 모두 펼침 */
+  .plat{flex-direction:column;height:auto}
+  .plat__panel,.plat__panel.is-open{flex:none;min-width:0;min-height:240px;padding:28px 24px}
+  .plat__panel:not(.is-open) .plat__label{writing-mode:horizontal-tb;opacity:1}
+  .plat__panel:not(.is-open) .plat__label .sub{display:block}
+  .plat__label,.plat__label .sub,.plat__panel:not(.is-open) .plat__label{font-size:26px}
+}
+@media (max-width:767px){
+  /* GNB: 메뉴가 숨으면 햄버거를 오른쪽 끝으로 */
+  .nav__right{justify-content:flex-end}
+
+  /* 데스크톱용 강제 줄바꿈 해제 (HTML의 <br> 앞에 공백이 있어 단어가 붙지 않음) */
+  main br{display:none}
+  main h1,main h2,main h3{text-wrap:balance}
+  main p,main li{text-wrap:pretty}
+
+  /* 제목 크기 통일 */
+  main h1{font-size:30px !important;line-height:1.3 !important}
+  main h2{font-size:27px !important;line-height:1.35 !important;letter-spacing:-.035em}
+  main h3{font-size:20px !important;line-height:1.4 !important}
+
+  .plat__label,.plat__label .sub,.plat__panel:not(.is-open) .plat__label{font-size:22px}
 }
